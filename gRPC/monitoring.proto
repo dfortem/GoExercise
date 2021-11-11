@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+option go_package = "../monitoring";
+
+package monitoring;
+
+service ElasticSearchMonitoring {
+	// get cluister's status
+	rpc GetStatus(Cluster) returns (Status) {}
+}
+
+message Cluster {
+	// cluster url that we want to monitor
+	string url = 1;
+}
+
+message Status {
+    // color status of the cluster, green, yellow, red
+	string color = 1;
+
+	// Timestamp in UTC
+	int64 timestamp = 2;
+}
