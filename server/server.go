@@ -39,7 +39,7 @@ func main() {
 	}
 	s := grpc.NewServer()
 	pb.RegisterElasticSearchMonitoringServer(s, &server{})
-	log.Println("server listening at " + lis.Addr())
+	log.Println("server listening")
 	if err := s.Serve(lis); err != nil {
 		log.Printf("[ERROR] Failed to serve - %+v \n", err)
 	}
